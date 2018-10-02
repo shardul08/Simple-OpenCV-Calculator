@@ -76,7 +76,7 @@ def start_calculator():
 	calc_text = ""
 	info = "Enter first number"
 	count_clear_frames = 0
-	cam = cv2.VideoCapture(1)
+	cam = cv2.VideoCapture(0)
 	while True:
 		_, img = cam.read()
 		img = cv2.flip(img, 1)
@@ -130,7 +130,10 @@ def start_calculator():
 						info = "Clear screen"
 						second = ''
 						flag['clear'] = True
-						calc_text += "= "+str(eval(calc_text))
+						try:
+							calc_text += "= "+str(eval(calc_text))
+						except:
+							calc_text = "Invalid operation"
 					elif first != '':
 						flag['first'] = True
 						info = "Enter operator"
