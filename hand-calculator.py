@@ -76,7 +76,7 @@ def start_calculator():
 	calc_text = ""
 	info = "Enter first number"
 	count_clear_frames = 0
-	cam = cv2.VideoCapture(0)
+	cam = cv2.VideoCapture(1)
 	while True:
 		_, img = cam.read()
 		img = cv2.flip(img, 1)
